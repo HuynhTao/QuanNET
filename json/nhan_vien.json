@@ -1,0 +1,23 @@
+[
+    {
+      "ma_nhan_vien": "NV001",
+      "ten_nhan_vien": "Admin",
+      "ten_dang_nhap": "admin",
+      "mat_khau": "123456",
+      "vai_tro": "quản trị"
+    },
+    {
+      "ma_nhan_vien": "NV002",
+      "ten_nhan_vien": "Nhân viên 1",
+      "ten_dang_nhap": "nhanvien1",
+      "mat_khau": "123456",
+      "vai_tro": "nhân viên"
+    },
+    {
+      "ma_nhan_vien": "NV003",
+      "ten_nhan_vien": "Nhân viên 2",
+      "ten_dang_nhap": "nhanvien2",
+      "mat_khau": "123456",
+      "vai_tro": "nhân viên"
+    }
+]

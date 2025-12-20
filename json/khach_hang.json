@@ -1,0 +1,101 @@
+[
+  {
+    "ma_khach": "KH001",
+    "ten_khach": "Nguyễn Văn A",
+    "so_dien_thoai": "0901234567",
+    "tai_khoan": "nguyenvana",
+    "mat_khau": "123456",
+    "so_tien": 200000,
+    "gio_choi": 10
+  },
+  {
+    "ma_khach": "KH002",
+    "ten_khach": "Trần Văn B",
+    "so_dien_thoai": "0902345678",
+    "tai_khoan": "tranvanb",
+    "mat_khau": "123456",
+    "so_tien": 150000,
+    "gio_choi": 7.5
+  },
+  {
+    "ma_khach": "KH003",
+    "ten_khach": "Lê Thị C",
+    "so_dien_thoai": "0903456789",
+    "tai_khoan": "lethic",
+    "mat_khau": "123456",
+    "so_tien": 300000,
+    "gio_choi": 15
+  },
+  {
+    "ma_khach": "KH004",
+    "ten_khach": "Phạm Văn D",
+    "so_dien_thoai": "0904567890",
+    "tai_khoan": "phamvand",
+    "mat_khau": "123456",
+    "so_tien": 50000,
+    "gio_choi": 2
+  },
+  {
+    "ma_khach": "KH005",
+    "ten_khach": "Hoàng Thị E",
+    "so_dien_thoai": "0905678901",
+    "tai_khoan": "hoangthie",
+    "mat_khau": "123456",
+    "so_tien": 400000,
+    "gio_choi": 20
+  },
+  {
+    "ma_khach": "KH006",
+    "ten_khach": "Vũ Văn F",
+    "so_dien_thoai": "0906789012",
+    "tai_khoan": "vuvanf",
+    "mat_khau": "123456",
+    "so_tien": 120000,
+    "gio_choi": 6
+  },
+  {
+    "ma_khach": "KH007",
+    "ten_khach": "Đặng Thị G",
+    "so_dien_thoai": "0907890123",
+    "tai_khoan": "dangthig",
+    "mat_khau": "123456",
+    "so_tien": 220000,
+    "gio_choi": 11
+  },
+  {
+    "ma_khach": "KH008",
+    "ten_khach": "Bùi Văn H",
+    "so_dien_thoai": "0908901234",
+    "tai_khoan": "buivanh",
+    "mat_khau": "123456",
+    "so_tien": 180000,
+    "gio_choi": 9
+  },
+  {
+    "ma_khach": "KH009",
+    "ten_khach": "Ngô Thị I",
+    "so_dien_thoai": "0909012345",
+    "tai_khoan": "ngothii",
+    "mat_khau": "123456",
+    "so_tien": 260000,
+    "gio_choi": 13
+  },
+  {
+    "ma_khach": "KH010",
+    "ten_khach": "Đỗ Văn K",
+    "so_dien_thoai": "0909123456",
+    "tai_khoan": "dovank",
+    "mat_khau": "123456",
+    "so_tien": 90000,
+    "gio_choi": 4
+  },
+  {
+    "ma_khach": "KH011",
+    "ten_khach": "Mai Thị L",
+    "so_dien_thoai": "0909234567",
+    "tai_khoan": "maithil",
+    "mat_khau": "123456",
+    "so_tien": 350000,
+    "gio_choi": 18
+  }
+]
