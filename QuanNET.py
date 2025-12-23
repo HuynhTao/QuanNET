@@ -2,14 +2,81 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 from PIL import Image, ImageTk
+from tkinter import simpledialog
 import json
+import os
+
+class KhachHang:
+    def __init__(self,ma_khach,ten_khach,so_dien_thoai,tai_khoan,mat_khau,so_tien,gio_choi):
+        self.ma_khach = ma_khach
+        self.ten_khach = ten_khach
+        self.so_dien_thoai = so_dien_thoai
+        self.tai_khoan = tai_khoan
+        self.mat_khau = mat_khau
+        self.so_tien = so_tien
+        self.gio_choi = gio_choi
+
+    def to_dict(self):
+        return {"ma_khach":self.ma_khach,"ten_khach":self.ten_khach,"so_dien_thoai":self.so_dien_thoai,
+                "tai_khoan":self.tai_khoan,"mat_khau":self.mat_khau,"so_tien":self.so_tien,"gio_choi":self.gio_choi}
+
+class QuanLyKhachHang:
+    def __init__(self,filename = "khach_hang.json"):
+        self.list_kh = []
+        self.filename = filename
+
+    def load_data(self):
+        if os.path.exists(self.filename):
+            with open(self.filename,"r",encoding = "utf-8") as file:
+                data = json.load(file)
+                self.list_kh = []
+                for item in data:
+                    kh = KhachHang(item["ma_khach"],item["ma_khach"],item["ma_khach"],
+                                   item["ma_khach"],item["ma_khach"],item["ma_khach"],item["ma_khach"])
+                    self.list_kh.append(kh)
+        else:
+            self.list_kh = [KhachHang("KH001","Nguyễn Văn A","0901234567","nguyenvana","123456",200000,10),
+                            KhachHang("KH002","Trần Văn B","0902345678","tranvanb","123456",150000,7.5)]
+            self.save_data()
+
+    def save_data(self):
+        data = [kh.to_dict() for kh in self.list_kh]
+        with open(self.filename,"w",encoding = "utf-8") as file:
+            json.dump(data,file,ensure_ascii = True,indent = 4)
+
+    def them_kh(self,khach_hang):
+        ma_kh = khach_hang.ma_khach.strip().upper()
+        for kh in self.list_kh:
+            if ma_kh == kh.ma_khach.strip().upper():
+                return False,f"Mã khách '{ma_kh}' đã tồn tại!"
+        self.list_kh.append(khach_hang)
+        self.save_data()
+        return True,f"Thêm khách hàng thành công!"
+
+    def update_kh (self,khach_hang):
+        ma_kh = khach_hang.ma_khach.strip().upper()
+        for i,kh in enumerate(self.list_kh):
+            if ma_kh == kh.ma_khach.strip().upper():
+                self.list_kh[i]= khach_hang
+                self.save_data()
+                return True,f"Cập nhật khách hàng thành công!"
+        return False,f"Mã khách '{ma_kh}' không tồn tại!"
+
+    def xoa_kh(self,khach_hang):
+        ma_kh = khach_hang.ma_khach.strip().upper()
+        for kh in self.list_kh:
+            if ma_kh == kh.ma_khach.strip().upper():
+                self.list_kh.remove(kh)
+                return True,f"Xóa khách hàng thành công!"
+        return False,f"Mã khách '{ma_kh}' không tồn tại!"
 
 
-phien_may = {}
+
 def luu(n,ds):
     with open("n", "w", encoding="utf-8") as f:
         json.dump(ds, f, ensure_ascii=False, indent=4)  
 
+phien_may = {}       
 def formmain(ma,vt):
     
     def maytinh(): 
