@@ -2,15 +2,179 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 from PIL import Image, ImageTk
+from tkinter import simpledialog
 import json
+import os
+
+class KhachHang:
+    def __init__(self,ma_khach,ten_khach,so_dien_thoai,tai_khoan,mat_khau,so_tien,gio_choi):
+        self.ma_khach = ma_khach
+        self.ten_khach = ten_khach
+        self.so_dien_thoai = so_dien_thoai
+        self.tai_khoan = tai_khoan
+        self.mat_khau = mat_khau
+        self.so_tien = so_tien
+        self.gio_choi = gio_choi
+
+    def to_dict(self):
+        return {"ma_khach":self.ma_khach,"ten_khach":self.ten_khach,"so_dien_thoai":self.so_dien_thoai,
+                "tai_khoan":self.tai_khoan,"mat_khau":self.mat_khau,"so_tien":self.so_tien,"gio_choi":self.gio_choi}
+
+class QuanLyKhachHang:
+    def __init__(self,filename = "khach_hang.json"):
+        self.list_kh = []
+        self.filename = filename
+
+    def load_data(self):
+        if os.path.exists(self.filename):
+            with open(self.filename,"r",encoding = "utf-8") as file:
+                data = json.load(file)
+                self.list_kh = []
+                for item in data:
+                    kh = KhachHang(item["ma_khach"],item["ten_khach"],item["so_dien_thoai"],
+                                   item["tai_khoan"],item["mat_khau"],item["so_tien"],item["gio_choi"])
+                    self.list_kh.append(kh)
+        else:
+            self.list_kh = [KhachHang("KH001","Nguyễn Văn A","0901234567","nguyenvana","123456",200000,10),
+                            KhachHang("KH002","Trần Văn B","0902345678","tranvanb","123456",150000,7.5)]
+            self.save_data()
+
+    def save_data(self):
+        data = [kh.to_dict() for kh in self.list_kh]
+        with open(self.filename,"w",encoding = "utf-8") as file:
+            json.dump(data,file,ensure_ascii = True,indent = 4)
+
+    def them_kh(self,khach_hang):
+        ma_kh = khach_hang.ma_khach.strip().upper()
+        for kh in self.list_kh:
+            if ma_kh == kh.ma_khach.strip().upper():
+                return False,f"Mã khách '{ma_kh}' đã tồn tại!"
+        self.list_kh.append(khach_hang)
+        self.save_data()
+        return True,f"Thêm khách hàng thành công!"
+
+    def update_kh (self,khach_hang):
+        ma_kh = khach_hang.ma_khach.strip().upper()
+        for i,kh in enumerate(self.list_kh):
+            if ma_kh == kh.ma_khach.strip().upper():
+                self.list_kh[i]= khach_hang
+                self.save_data()
+                return True,f"Cập nhật khách hàng thành công!"
+        return False,f"Mã khách '{ma_kh}' không tồn tại!"
+
+    def xoa_kh(self,khach_hang):
+        ma_kh = khach_hang.ma_khach.strip().upper()
+        for kh in self.list_kh:
+            if ma_kh == kh.ma_khach.strip().upper():
+                self.list_kh.remove(kh)
+                return True,f"Xóa khách hàng thành công!"
+        return False,f"Mã khách '{ma_kh}' không tồn tại!"
 
 
-phien_may = {}
+
 def luu(n,ds):
     with open("n", "w", encoding="utf-8") as f:
         json.dump(ds, f, ensure_ascii=False, indent=4)  
 
+phien_may = {}       
 def formmain(ma,vt):
+
+    def khachhang():
+        
+        def capnhat(ds):
+            tr.delete(*tr.get_children())
+            for kh in ds:           
+                tr.insert("", "end", values=(kh.ma_khach,kh.ten_khach,kh.so_dien_thoai,kh.tai_khoan,kh.so_tien,kh.gio_choi))
+                
+        dskh=QuanLyKhachHang()
+        dskh.load_data()
+        skh=tk.Toplevel() 
+        skh.title("Danh sách khách hàng")
+        skh.geometry("840x480")
+        skh.configure(bg="#808080")
+
+        icthem = Image.open("./img/powerbutton.png")
+        icthem= icthem.resize((64, 64), Image.LANCZOS)
+        icthem = ImageTk.PhotoImage(icthem)
+
+        btn_them = tk.Button(
+           skh,
+           image=icthem,
+           text="Mở Máy",
+           compound="top",
+           bg="#808080",
+           fg="white",
+           bd=0,
+        )
+        btn_them.image = icthem
+        btn_them.place(x=10,y=10)
+
+        icthem = Image.open("./img/poweron.png")
+        icthem= icthem.resize((64, 64), Image.LANCZOS)
+        icthem = ImageTk.PhotoImage(icthem)
+
+        btn_them = tk.Button(
+           skh,
+           image=icthem,
+           text="Tắt Máy",
+           compound="top",
+           bg="#808080",
+           fg="white",
+           bd=0,
+        )
+        btn_them.image = icthem
+        btn_them.place(x=80,y=10)
+
+        icthem = Image.open("./img/add.png")
+        icthem= icthem.resize((64, 64), Image.LANCZOS)
+        icthem = ImageTk.PhotoImage(icthem)
+
+        btn_them = tk.Button(
+           skh,
+           image=icthem,
+           text="Thêm Máy",
+           compound="top",
+           bg="#808080",
+           fg="white",
+           bd=0,
+        )
+        btn_them.image = icthem
+        btn_them.place(x=150,y=10)
+
+        icthem = Image.open("./img/add.png")
+        icthem= icthem.resize((64, 64), Image.LANCZOS)
+        icthem = ImageTk.PhotoImage(icthem)
+
+        btn_them = tk.Button(
+           skh,
+           image=icthem,
+           text="Thêm Máy",
+           compound="top",
+           bg="#808080",
+           fg="white",
+           bd=0,
+        )
+        btn_them.image = icthem
+        btn_them.place(x=220,y=10)
+
+
+
+        tr = ttk.Treeview(skh, columns=("ma_khach", "ten_khach", "so_dien_thoai", "tai_khoan","so_tien","gio_choi"), show="headings")
+        tr.heading("ma_khach", text="Mã khách")
+        tr.heading("ten_khach", text="Tên khách")
+        tr.heading("so_dien_thoai", text="SĐT")
+        tr.heading("tai_khoan", text="Tài khoản")
+        tr.heading("so_tien", text="Tiền")
+        tr.heading("gio_choi", text="Gời chơi còn lại")
+
+        tr.place(x=10, y=150, width=810, height=450)
+
+        tr.bind("<<TreeviewSelect>>")
+
+        capnhat(dskh.list_kh)        
+
+        skh.mainloop()
+
     
     def maytinh(): 
         def momay():
@@ -18,33 +182,33 @@ def formmain(ma,vt):
             if not chon:
                 messagebox.showwarning("Lỗi", "Chọn máy trước")
                 return
-        
+
             ma_may = tr.item(chon)["values"][0]
-        
+
             may = next(m for m in dsmt if m["ma_may"] == ma_may)
-        
+
             if may["trang_thai"] != "trống":
                 messagebox.showerror("Lỗi", "Máy đang dùng")
                 return
-        
+
             ma_khach = tk.simpledialog.askstring("Mở máy", "Nhập mã khách:")
             if not ma_khach:
                 return
-        
+
             kh = next((k for k in dskh if k["ma_khach"] == ma_khach), None)
             if not kh or kh["gio_choi"] <= 0:
                 messagebox.showerror("Lỗi", "Khách không hợp lệ")
                 return
-            
-            
-            
+
+
+
             # cập nhật RAM
             phien_may[ma_may] = {
                 "tai_khoan": kh["tai_khoan"],
                 "gio": kh["gio_choi"],
                 "ma_kh": ma_khach
             }
-        
+
             may["trang_thai"] = "đang dùng"
             capnhat(dsmt)
 
@@ -59,22 +223,22 @@ def formmain(ma,vt):
         def tatmay(ma_may):
             if ma_may not in phien_may:
                 return
-        
+
             phien = phien_may.pop(ma_may)
             ma_kh = phien["ma_kh"]
             gio_con_lai = phien["gio"]
-        
+
             # cộng giờ chơi cho khách
             kh = next(k for k in dskh if k["ma_khach"] == ma_kh)
             kh["gio_choi"] = kh.get("gio_choi", 0) + gio_con_lai
-        
+
             # cập nhật trạng thái máy
             may = next(m for m in dsmt if m["ma_may"] == ma_may)
             may["trang_thai"] = "trống"
-        
+
             # cập nhật Treeview
             capnhat(dsmt)
-        
+
             messagebox.showinfo("Tắt máy", f"Máy {ma_may} đã tắt. Giờ còn lại của khách: {gio_con_lai:.2f} giờ")
 
 
@@ -82,12 +246,12 @@ def formmain(ma,vt):
             for ma_may, phien in list(phien_may.items()):
                 # trừ 1 phút
                 phien["gio"] -= 1/60  
-        
+
                 if phien["gio"] <= 0:
                     # tìm máy
                     may = next(m for m in dsmt if m["ma_may"] == ma_may)
                     may["trang_thai"] = "trống"
-        
+
                     # xóa phiên
                     phien_may.pop(ma_may)
                     tatmay(ma_may)
@@ -95,21 +259,21 @@ def formmain(ma,vt):
                         "Hết giờ",
                         f"Máy {ma_may} đã hết giờ và tự tắt"
                     )
-                    
+
             capnhat(dsmt)
             smt.after(60000, tru_gio)   # gọi lại sau 60 giây
 
-        
+
         def capnhat(ds):
             tr.delete(*tr.get_children())
             for m in ds:
                 ma = m["ma_may"]
                 phien = phien_may.get(ma, {})
-        
+
                 gio = phien.get("gio", "")
                 if gio != "":
                     gio = round(gio, 2)
-        
+
                 tr.insert("", "end", values=(
                     ma,
                     m["loai_may"],
@@ -119,8 +283,8 @@ def formmain(ma,vt):
                 ))
 
 
-        
-            
+
+
         smt=tk.Toplevel() 
         smt.title("Danh sách máy tính")
         smt.geometry("840x480")
@@ -129,7 +293,7 @@ def formmain(ma,vt):
         icthem = Image.open("./img/powerbutton.png")
         icthem= icthem.resize((64, 64), Image.LANCZOS)
         icthem = ImageTk.PhotoImage(icthem)
-       
+
         btn_them = tk.Button(
            smt,
            image=icthem,
@@ -142,11 +306,11 @@ def formmain(ma,vt):
         )
         btn_them.image = icthem
         btn_them.place(x=10,y=10)
-        
+
         icthem = Image.open("./img/poweron.png")
         icthem= icthem.resize((64, 64), Image.LANCZOS)
         icthem = ImageTk.PhotoImage(icthem)
-       
+
         btn_them = tk.Button(
            smt,
            image=icthem,
@@ -159,11 +323,11 @@ def formmain(ma,vt):
         )
         btn_them.image = icthem
         btn_them.place(x=80,y=10)
-        
+
         icthem = Image.open("./img/add.png")
         icthem= icthem.resize((64, 64), Image.LANCZOS)
         icthem = ImageTk.PhotoImage(icthem)
-       
+
         btn_them = tk.Button(
            smt,
            image=icthem,
@@ -175,11 +339,11 @@ def formmain(ma,vt):
         )
         btn_them.image = icthem
         btn_them.place(x=150,y=10)
-        
+
         icthem = Image.open("./img/add.png")
         icthem= icthem.resize((64, 64), Image.LANCZOS)
         icthem = ImageTk.PhotoImage(icthem)
-       
+
         btn_them = tk.Button(
            smt,
            image=icthem,
@@ -206,37 +370,37 @@ def formmain(ma,vt):
         tr.bind("<<TreeviewSelect>>")
 
         capnhat(dsmt)
-        
+
         tru_gio()
-        
+
         smt.mainloop()
-        
-    
-    
+
+
+
     def dangxuat():
         s1.destroy()
         s.deiconify()
         enmk.delete(0, tk.END)
-        
+
     s.withdraw()
     s1 = tk.Toplevel()
     s1.title("Quản lý quán Net")
     s1.geometry("1200x720")
-    
-    
+
+
     anh = Image.open("./img/anhnen3.jpg")
     anh = anh.resize((1200, 720), Image.LANCZOS)
     anhnen = ImageTk.PhotoImage(anh)
-    
-    
+
+
     label_nen = tk.Label(s1, image=anhnen)
     label_nen.image = anhnen
     label_nen.place(x=0, y=0, relwidth=1, relheight=1)
-    
+
     icpc = Image.open("./img/desktop.png")
     icpc= icpc.resize((64, 64), Image.LANCZOS)
     icpc = ImageTk.PhotoImage(icpc)
-    
+
     btn_pc = tk.Button(
         s1,
         image=icpc,
@@ -249,11 +413,11 @@ def formmain(ma,vt):
     )
     btn_pc.image = icpc 
     btn_pc.place(x=50, y=50)
-    
+
     ickh = Image.open("./img/cake.png")
     ickh= ickh.resize((64, 64), Image.LANCZOS)
     ickh = ImageTk.PhotoImage(ickh)
-    
+
     btn_kh = tk.Button(
         s1,
         image=ickh,
@@ -262,15 +426,16 @@ def formmain(ma,vt):
         bg="#1e1e1e",
         fg="white",
         bd=0,
+        command=khachhang
     )
     btn_kh.image = ickh
     btn_kh.place(x=50, y=150)
-    
-    
+
+
     icnv = Image.open("./img/teamwork.png")
     icnv= icnv.resize((64, 64), Image.LANCZOS)
     icnv = ImageTk.PhotoImage(icnv)
-    
+
     btn_nv = tk.Button(
         s1,
         image=icnv,
@@ -282,12 +447,12 @@ def formmain(ma,vt):
     )
     btn_nv.image = icnv
     btn_nv.place(x=50, y=250)
-    
-    
+
+
     icf = Image.open("./img/fast-food.png")
     icf= icf.resize((64, 64), Image.LANCZOS)
     icf = ImageTk.PhotoImage(icf)
-    
+
     btn_f = tk.Button(
         s1,
         image=icf,
@@ -300,14 +465,14 @@ def formmain(ma,vt):
     )
     btn_f.image = icf
     btn_f.place(x=50, y=350)
-    
+
     taskbar = tk.Frame(s1, bg="#2b2b2b", height=40)
     taskbar.pack(side="bottom", fill="x")
-    
+
     icoff = Image.open("./img/power.png")
     icoff= icoff.resize((20, 20), Image.LANCZOS)
     icoff = ImageTk.PhotoImage(icoff)
-    
+
     btn_off = tk.Button(
         taskbar,
         image=icoff,
@@ -319,12 +484,12 @@ def formmain(ma,vt):
     )
     btn_off.image = icoff
     btn_off.place(x=1150, y=0)
-    
+
     tk.Label(taskbar, text=f"Quán NET [{vt}]",
              fg="white", bg="#2b2b2b",
              font=("Arial", 10)).pack(side="left", padx=10)
 
-    
+
 def dangnhap():
     print(dsnv)
     ten=enten.get()
@@ -349,7 +514,7 @@ def dangnhap():
             formmain(manv,vt)
 
 
-    
+
 s = tk.Tk()
 s.title("Quán NET")
 s.geometry("400x500")

@@ -1,0 +1,20 @@
+[
+    {
+        "ma_khach": "KH001",
+        "ten_khach": "Nguy\u1ec5n V\u0103n A",
+        "so_dien_thoai": "0901234567",
+        "tai_khoan": "nguyenvana",
+        "mat_khau": "123456",
+        "so_tien": 200000,
+        "gio_choi": 10
+    },
+    {
+        "ma_khach": "KH002",
+        "ten_khach": "Tr\u1ea7n V\u0103n B",
+        "so_dien_thoai": "0902345678",
+        "tai_khoan": "tranvanb",
+        "mat_khau": "123456",
+        "so_tien": 150000,
+        "gio_choi": 7.5
+    }
+]
