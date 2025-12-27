@@ -1,64 +1,262 @@
 [
-  { "ma_may": "PC01","loai_may": "máy thường", "trang_thai": "trống"},
-  { "ma_may": "PC02","loai_may": "máy thường", "trang_thai": "trống"},
-  { "ma_may": "PC03","loai_may": "máy thường", "trang_thai": "hỏng"},
-  { "ma_may": "PC04", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC05", "loai_may": "máy thường", "trang_thai": "đang dùng" },
-  { "ma_may": "PC06", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC07", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC08", "loai_may": "máy thường", "trang_thai": "hỏng" },
-  { "ma_may": "PC09", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC10", "loai_may": "máy thường", "trang_thai": "đang dùng" },
-
-  { "ma_may": "PC11", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC12", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC13", "loai_may": "máy thường", "trang_thai": "đang dùng" },
-  { "ma_may": "PC14", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC15", "loai_may": "máy thường", "trang_thai": "hỏng" },
-
-  { "ma_may": "PC16", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC17", "loai_may": "máy thường", "trang_thai": "đang dùng" },
-  { "ma_may": "PC18", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC19", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC20", "loai_may": "máy thường", "trang_thai": "trống" },
-
-  { "ma_may": "PC21", "loai_may": "máy thường", "trang_thai": "đang dùng" },
-  { "ma_may": "PC22", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC23", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC24", "loai_may": "máy thường", "trang_thai": "hỏng" },
-  { "ma_may": "PC25", "loai_may": "máy thường", "trang_thai": "trống" },
-
-  { "ma_may": "PC26", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC27", "loai_may": "máy thường", "trang_thai": "đang dùng" },
-  { "ma_may": "PC28", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC29", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC30", "loai_may": "máy thường", "trang_thai": "trống" },
-
-  { "ma_may": "PC31", "loai_may": "máy thường", "trang_thai": "hỏng" },
-  { "ma_may": "PC32", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC33", "loai_may": "máy thường", "trang_thai": "đang dùng" },
-  { "ma_may": "PC34", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC35", "loai_may": "máy thường", "trang_thai": "trống" },
-
-  { "ma_may": "PC36", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC37", "loai_may": "máy thường", "trang_thai": "đang dùng" },
-  { "ma_may": "PC38", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC39", "loai_may": "máy thường", "trang_thai": "hỏng" },
-  { "ma_may": "PC40", "loai_may": "máy thường", "trang_thai": "trống" },
-
-  { "ma_may": "PC41", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC42", "loai_may": "máy thường", "trang_thai": "đang dùng" },
-  { "ma_may": "PC43", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC44", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC45", "loai_may": "máy thường", "trang_thai": "trống" },
-
-  { "ma_may": "PC46", "loai_may": "máy thường", "trang_thai": "hỏng" },
-  { "ma_may": "PC47", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC48", "loai_may": "máy thường", "trang_thai": "đang dùng" },
-  { "ma_may": "PC49", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC50", "loai_may": "máy thường", "trang_thai": "trống" },
-
-  { "ma_may": "PC51", "loai_may": "máy thường", "trang_thai": "trống" },
-  { "ma_may": "PC52", "loai_may": "máy thường", "trang_thai": "đang dùng" },
-  { "ma_may": "PC53", "loai_may": "máy thường", "trang_thai": "trống" }
+    {
+        "ma_may": "PC01",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC02",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC03",
+        "loai_may": "thường",
+        "trang_thai": "hỏng"
+    },
+    {
+        "ma_may": "PC04",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC05",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC06",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC07",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC08",
+        "loai_may": "thường",
+        "trang_thai": "hỏng"
+    },
+    {
+        "ma_may": "PC09",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC10",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC11",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC12",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC13",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC14",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC15",
+        "loai_may": "thường",
+        "trang_thai": "hỏng"
+    },
+    {
+        "ma_may": "PC16",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC17",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC18",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC19",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC20",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC21",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC22",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC23",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC24",
+        "loai_may": "thường",
+        "trang_thai": "hỏng"
+    },
+    {
+        "ma_may": "PC25",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC26",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC27",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC28",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC29",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC30",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC31",
+        "loai_may": "thường",
+        "trang_thai": "hỏng"
+    },
+    {
+        "ma_may": "PC32",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC33",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC34",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC35",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC36",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC37",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC38",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC39",
+        "loai_may": "thường",
+        "trang_thai": "hỏng"
+    },
+    {
+        "ma_may": "PC40",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC41",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC42",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC43",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC44",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC45",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC46",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC48",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC49",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC50",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC51",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC52",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    },
+    {
+        "ma_may": "PC53",
+        "loai_may": "thường",
+        "trang_thai": "trống"
+    }
 ]

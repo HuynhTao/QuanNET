@@ -1,0 +1,23 @@
+[
+    {
+        "ma_dd": "DA001",
+        "ten_dd": "Mì ly",
+        "gia": 15000,
+        "loai": "đồ ăn",
+        "so_luong_ton": 46
+    },
+    {
+        "ma_dd": "DA002",
+        "ten_dd": "Nước ngọt",
+        "gia": 10000,
+        "loai": "nước uống",
+        "so_luong_ton": 80
+    },
+    {
+        "ma_dd": "DA003",
+        "ten_dd": "Thẻ FC",
+        "gia": 50000,
+        "loai": "Thẻ cào",
+        "so_luong_ton": 100
+    }
+]
